@@ -1,0 +1,14 @@
+{
+    "errorLens.lintFilePaths": {
+        "eslint": [
+            "**/*.eslintrc.{js,cjs,yaml,yml,json}",
+            "**/*package.json"
+        ],
+        "Stylelint": [
+            "**/*.stylelintrc",
+            "**/*.stylelintrc.{cjs,js,json,yaml,yml}",
+            "**/*stylelint.config.{cjs,js}",
+            "**/*package.json"
+        ]
+    }
+}
