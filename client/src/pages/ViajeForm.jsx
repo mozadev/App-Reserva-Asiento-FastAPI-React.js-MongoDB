@@ -1,5 +1,4 @@
 
-
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 // import axios from 'axios'
@@ -9,8 +8,13 @@ function ViajeForm() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
-    const [stock, setStock] = useState('')
-    const [category, setCategory] = useState('')
+    const [asientos_disponibles, setasientos_disponibles] = useState('')
+    const [origen, setorigen] = useState('')
+    const [destino, setdestino] = useState('')
+    const [fecha_salida, setFecha_salida] = useState('')
+    const [hora_salida, sethora_salida] = useState('')
+    const [hora_llegada, sethora_llegada] = useState('')
+    const [tipo_servicio, settipo_servicio] = useState('')
     const [thumbnail, setThumbnail] = useState('')
 
     const params = useParams()
@@ -20,12 +24,14 @@ function ViajeForm() {
         // not send date y don't refres page
         e.preventDefault();
         try {
+            const datetimeFechaSalida = fecha_salida ? `${fecha_salida}T00:00:00` : null;
+
             if (!params.id) {
-                const res = await createViaje({ title, description, price, stock, category, thumbnail })
+                const res = await createViaje({ title, description, price, asientos_disponibles, origen, destino, fecha_salida: datetimeFechaSalida, hora_salida, hora_llegada, tipo_servicio, thumbnail })
                 console.log(res);
 
             } else {
-                const res = await updateViaje(params.id, { title, description, price, stock, category, thumbnail })
+                const res = await updateViaje(params.id, { title, description, price, asientos_disponibles, origen, destino, fecha_salida: datetimeFechaSalida, hora_salida, hora_llegada, tipo_servicio, thumbnail })
                 console.log(res);
             }
             navigate("/")
@@ -41,8 +47,17 @@ function ViajeForm() {
                     setTitle(res.data.title || '')
                     setDescription(res.data.description || '')
                     setPrice(res.data.price || '')
-                    setStock(res.data.stock || '')
-                    setCategory(res.data.category || '')
+                    setasientos_disponibles(res.data.asientos_disponibles || '')
+                    setorigen(res.data.origen || '')
+                    setdestino(res.data.destino || '')
+                    // setFecha_salida(res.data.fecha_salida || '')
+
+                    const fechaSalidaFormatted = res.data.fecha_salida ? res.data.fecha_salida.split('T')[0] : '';
+                    setFecha_salida(fechaSalidaFormatted);
+
+                    sethora_salida(res.data.hora_salida || '')
+                    sethora_llegada(res.data.hora_llegada || '')
+                    settipo_servicio(res.data.tipo_servicio || '')
                     setThumbnail(res.data.thumbnail || '')
                 })
                 .catch((err) => console.log(err))
@@ -80,19 +95,64 @@ function ViajeForm() {
 
                     <input
                         type="text"
-                        placeholder="stock"
+                        placeholder="asientos_disponibles"
                         className="block py-2 px-3 mb-4 w-full text-black"
-                        onChange={(e) => setStock(e.target.value)}
-                        value={stock}
+                        onChange={(e) => setasientos_disponibles(e.target.value)}
+                        value={asientos_disponibles}
                         autoFocus
                     />
 
                     <input
                         type="text"
-                        placeholder="category"
+                        placeholder="origen"
                         className="block py-2 px-3 mb-4 w-full text-black"
-                        onChange={(e) => setCategory(e.target.value)}
-                        value={category}
+                        onChange={(e) => setorigen(e.target.value)}
+                        value={origen}
+                        autoFocus
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="destino"
+                        className="block py-2 px-3 mb-4 w-full text-black"
+                        onChange={(e) => setdestino(e.target.value)}
+                        value={destino}
+                        autoFocus
+                    />
+
+                    <input
+                        type="date"
+                        placeholder="fecha salida"
+                        className="block py-2 px-3 mb-4 w-full text-black"
+                        onChange={(e) => setFecha_salida(e.target.value)}
+                        value={fecha_salida}
+                        autoFocus
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="hora salida"
+                        className="block py-2 px-3 mb-4 w-full text-black"
+                        onChange={(e) => sethora_salida(e.target.value)}
+                        value={hora_salida}
+                        autoFocus
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="hora llegada"
+                        className="block py-2 px-3 mb-4 w-full text-black"
+                        onChange={(e) => sethora_llegada(e.target.value)}
+                        value={hora_llegada}
+                        autoFocus
+                    />
+
+                    <input
+                        type="text"
+                        placeholder="tipo servicio"
+                        className="block py-2 px-3 mb-4 w-full text-black"
+                        onChange={(e) => settipo_servicio(e.target.value)}
+                        value={tipo_servicio}
                         autoFocus
                     />
 

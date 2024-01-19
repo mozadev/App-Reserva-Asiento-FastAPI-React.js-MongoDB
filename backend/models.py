@@ -1,3 +1,4 @@
+from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import Optional
 from bson import (
@@ -22,10 +23,17 @@ class Viaje(BaseModel):
     title: str
     description: Optional[str] = None
     price: int = Field(..., gt=0, le=100)
-    stock: int = Field(..., gt=0, le=40)
-    category: str
+    asientos_disponibles: int = Field(..., gt=0, le=40)
+    origen: str
+    destino: str
+    fecha_salida: datetime
+    hora_salida: str
+    hora_llegada: str
+    tipo_servicio: str
     thumbnail: str
     completed: bool = False
+    
+
 
     class Config:
         from_atributes = True
@@ -36,11 +44,19 @@ class Viaje(BaseModel):
 class UpdateViaje(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
-    completed: Optional[bool] = False
     price: Optional[int] = Field(..., gt=0, le=100)
-    stock: Optional[int] = Field(..., gt=0, le=40)
-    category: Optional[str] = None
+    asientos_disponibles: Optional[int] = Field(..., gt=0, le=40)
+    origen: Optional[str] = None
+    destino: Optional[str] = None
+    fecha_salida: Optional[datetime] = None
+    hora_salida: Optional[str] = None
+    hora_llegada: Optional[str] = None
+    tipo_servicio: Optional[str] = None
     thumbnail: Optional[str] = None
+    completed: Optional[bool] = False
+    
+    
+ 
 
     class Config:
         from_atributes = True

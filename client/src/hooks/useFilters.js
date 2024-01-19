@@ -10,8 +10,9 @@ export function useFilters() {
       return (
         product.price >= filters.minPrice &&
         (
-          filters.category === 'all' ||
-          filters.category === product.category
+        (filters.origen === 'all' || filters.origen === product.origen) && // Filtra por origen
+        (filters.destino === 'all' || filters.destino === product.destino) && // Filtra por destino
+        (filters.fecha_salida === 'all' || filters.fecha_salida === product.fecha_salida) // Filtra por fecha_salida
         )
       )
     })

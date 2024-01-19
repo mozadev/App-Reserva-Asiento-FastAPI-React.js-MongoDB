@@ -45,3 +45,63 @@
     object-fit: cover;
     background: #fff;
   }
+
+
+
+
+
+  /* Productos.css */
+
+.products table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.products th,
+.products td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.products th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Mejora la apariencia de los botones */
+.products button {
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.products button.added {
+  background-color: #09f; /* Color del botón cuando el producto no está en el carrito */
+  color: white;
+}
+
+.products button.removed {
+  background-color: red; /* Color del botón cuando el producto está en el carrito */
+  color: white;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .products table {
+    width: 100%;
+  }
+
+  .products th,
+  .products td {
+    display: block;
+    text-align: left;
+  }
+
+  .products td:nth-child(n + 2) {
+    padding-top: 10px;
+  }
+}
