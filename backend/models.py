@@ -22,7 +22,7 @@ class Viaje(BaseModel):
     id: Optional[PyObjectId] = Field(alias="_id", default=None)
     title: str
     description: Optional[str] = None
-    price: int = Field(..., gt=0, le=100)
+    price: int = Field(..., gt=0, le=300)
     asientos_disponibles: int = Field(..., gt=0, le=40)
     origen: str
     destino: str
@@ -44,7 +44,7 @@ class Viaje(BaseModel):
 class UpdateViaje(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
-    price: Optional[int] = Field(..., gt=0, le=100)
+    price: Optional[int] = Field(..., gt=0, le=300)
     asientos_disponibles: Optional[int] = Field(..., gt=0, le=40)
     origen: Optional[str] = None
     destino: Optional[str] = None

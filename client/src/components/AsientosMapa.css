@@ -1,0 +1,61 @@
+/* Products.css */
+.table-and-seatmap-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Esto crea una sola columna que ocupará todo el ancho disponible */
+  gap: 20px; /* Espacio entre la tabla y el mapa de asientos */
+  width: 100%;
+}
+
+.table-container {
+  overflow-x: auto; /* Agrega desplazamiento horizontal si la tabla es más ancha que la pantalla */
+}
+
+/* Asegúrate de que la tabla ocupe todo el ancho disponible */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Agrega los estilos existentes aquí sin cambios */
+
+/* SeatMap.css */
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 5px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.seat:hover {
+  background-color: #e2e2e2;
+}
+
+/* SeatMap.css */
+.seat-map {
+  /* ... tus estilos existentes ... */
+  width: 100%; /* Asegúrate de que el mapa de asientos ocupe todo el ancho disponible */
+}
+
+/* ... */
