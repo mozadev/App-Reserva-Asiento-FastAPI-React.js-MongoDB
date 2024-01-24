@@ -1,6 +1,7 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
 from typing import Optional
+from typing import List
 from bson import (
     ObjectId,
 )  # importamos el ObjectId de bson para poder usarlo en la clase PyObjectId
@@ -18,6 +19,15 @@ class PyObjectId(ObjectId):
         return str(v)
 
 
+class Asiento(BaseModel):
+    id: Optional[PyObjectId] = Field(alias="_id", default=None)
+    estado : str
+    
+    class Config:
+        from_atributes = True
+        populate_by_name = True
+        json_encoders = {ObjectId: str}
+
 class Viaje(BaseModel):
     id: Optional[PyObjectId] = Field(alias="_id", default=None)
     title: str
@@ -32,6 +42,7 @@ class Viaje(BaseModel):
     tipo_servicio: str
     thumbnail: str
     completed: bool = False
+    asientos: List[Asiento] = []
     
 
 

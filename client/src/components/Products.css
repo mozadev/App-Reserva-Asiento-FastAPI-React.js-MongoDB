@@ -1,10 +1,23 @@
 .products {
     width: 100%;
-    display: flex;
+    display: grid;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   
+  .table-and-seatmap-container{
+display: grid;
+flex-direction: colum;
+align-items: center;
+width: 100%;
+
+  }
+table-conteiner{
+  width: 100%;
+  margin-bottom: 10rem;
+}
+
   .products ul {
     display: grid;
     grid-template-columns: repeat(
@@ -46,16 +59,12 @@
     background: #fff;
   }
 
-
-
-
-
   /* Productos.css */
 
 .products table {
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1px;
 }
 
 .products th,
@@ -87,6 +96,99 @@
 .products button.removed {
   background-color: red; /* Color del botón cuando el producto está en el carrito */
   color: white;
+}
+
+.seatmap-and-checkout-container {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* Ajusta el 300px al ancho deseado para checkout-info */
+  gap: 1rem;
+  align-items: start; /* Alinea los elementos al inicio de su celda de grid */
+}
+
+.seat-map-container {
+  
+  background-color: green; /* Cambia el color de fondo según tu diseño */
+  padding: 1rem; /* Añade algo de relleno alrededor del mapa de asientos */
+  border-radius: 8px; /* Bordes redondeados para el contenedor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para dar profundidad */
+  margin-right: 0;
+  margin-top: 20px;
+ 
+}
+
+
+/* Ajusta el tamaño de los asientos individuales y su estilo */
+.seat-map-container .seat {
+  width: 30px; /* Ancho del asiento */
+  height: 30px; /* Altura del asiento */
+  margin: 0.5rem; /* Espacio entre los asientos */
+  display: flex; /* Para centrar el número del asiento */
+  align-items: center; /* Centra el contenido a lo largo del eje Y */
+  justify-content: center; /* Centra el contenido a lo largo del eje X */
+  cursor: pointer; /* Cambia el cursor cuando el usuario pasa sobre un asiento */
+  /* Añade estilos adicionales para el asiento seleccionado y no disponible */
+
+}
+
+/* Estilos para un asiento disponible */
+.seat-map-container .seat.available {
+  background-color: #4CAF50; /* Color verde para asientos disponibles */
+}
+/* Estilos para un asiento seleccionado */
+.seat-map-container .seat.selected {
+  background-color: #FFC107; /* Color amarillo para asientos seleccionados */
+}
+
+/* Estilos para un asiento no disponible */
+.seat-map-container .seat.unavailable {
+  background-color: #f44336; /* Color rojo para asientos no disponibles */
+}
+
+/* Estilo para el contenedor que incluye el mapa de asientos y la información de checkout */
+.seatmap-and-checkout-container {
+  display: flex; /* Usa flexbox para alinear los contenedores de lado a lado */
+ 
+  align-items: flex-start; /* Alinea los contenedores al comienzo del contenedor principal */
+  gap:0;
+}
+
+
+/* Estilos para el checkout-info */
+.checkout-info {
+  background-color: #333; /* Color de fondo del contenedor */
+  color: #fff; /* Color del texto */
+  padding: 1rem; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  max-width: 300px; /* Máximo ancho del contenedor */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+  margin-left: 1rem; /* Margen a la izquierda para separarlo del mapa de asientos */
+  margin-top: 20px;
+  
+  
+}
+
+.checkout-info p {
+  margin: 0.5rem 0; /* Margen vertical para los párrafos */
+}
+
+.checkout-info button {
+  background-color: #d32f2f; /* Color de fondo para el botón */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  padding: 10px 20px; /* Espaciado interno */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor tipo puntero para indicar que es clickeable */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
+  font-weight: bold; /* Negrita para el texto */
+  margin-top: 1rem; /* Margen superior para separarlo del último párrafo */
+  width: 100%; /* Ocupa todo el ancho del contenedor */
+  transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+
+
+.checkout-info button:hover {
+  background-color: #b71c1c; /* Color de fondo al pasar el mouse */
 }
 
 /* Responsiveness */

@@ -1,0 +1,58 @@
+/* Estilos para el botón rojo */
+/* Estilos para el botón rojo */
+.button-red {
+    background-color: #ff0000; /* Rojo */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Padding para hacer el botón más grande */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor en forma de mano al pasar sobre el botón */
+    font-size: 1rem; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    margin-top: 10px; /* Espacio en la parte superior */
+    width: 100%; /* Hacer que el botón se expanda al ancho completo del contenedor */
+  }
+  
+  /* Estilos para el contenedor del botón */
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    align-items: center; /* Centra el botón verticalmente */
+    margin-top: 10px; /* Espacio en la parte superior */
+  }  
+
+  
+
+/* Estilo para el formulario de pasajeros */
+.passenger-form {
+  background-color: #333; /* O el color de fondo que tiene checkout-info */
+  color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-left: 1rem
+}
+
+.passenger-form input, .passenger-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* Espacio entre campos */
+  border-radius: 4px;
+  border: 1px solid #ddd; /* Color de borde ligero, o el que tenga checkout-info */
+}
+
+
+.passenger-form .button-red {
+    background-color: #d9534f; /* O el color de fondo del botón que tienes en checkout-info */
+    color: white;
+    border-color: #d43f3a;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  /* Estilo para los títulos de sección dentro del formulario */
+.passenger-form h3 {
+    padding-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd; /* Si hay una línea divisoria en checkout-info */
+  }

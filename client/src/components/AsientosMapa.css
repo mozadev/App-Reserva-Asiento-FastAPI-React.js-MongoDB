@@ -1,61 +1,36 @@
-/* Products.css */
-.table-and-seatmap-container {
-  display: grid;
-  grid-template-columns: 1fr; /* Esto crea una sola columna que ocupará todo el ancho disponible */
-  gap: 20px; /* Espacio entre la tabla y el mapa de asientos */
-  width: 100%;
-}
 
-.table-container {
-  overflow-x: auto; /* Agrega desplazamiento horizontal si la tabla es más ancha que la pantalla */
-}
-
-/* Asegúrate de que la tabla ocupe todo el ancho disponible */
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-/* Agrega los estilos existentes aquí sin cambios */
-
-/* SeatMap.css */
-.seat-map {
+/* AsientosMapa.css */
+.bus-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* transform: rotate(-90deg); */
 }
 
-.seat-row {
-  display: flex;
-  justify-content: center;
-  margin: 5px 0;
+.seats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Ajusta según tu diseño */
+  gap: 10px;
 }
 
 .seat {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  margin: 5px;
-  background: #ffffff;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  text-align: center;
+  width: 30px;
+  height: 30px;
+  background-color: #9acd32; /* Color verde para asientos disponibles */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.seat:hover {
-  background-color: #e2e2e2;
+.seat.unavailable {
+  background-color: #d3d3d3; /* Color gris para asientos no disponibles */
+  cursor: not-allowed;
 }
 
-/* SeatMap.css */
-.seat-map {
-  /* ... tus estilos existentes ... */
-  width: 100%; /* Asegúrate de que el mapa de asientos ocupe todo el ancho disponible */
+.seat.selected {
+  background-color: #ff6347; /* Color rojo para asientos seleccionados */
 }
 
-/* ... */
+/* Añade estilos para .driver-seat y .bathroom-seats si es necesario */

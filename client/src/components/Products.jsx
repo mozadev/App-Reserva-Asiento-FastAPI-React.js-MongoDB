@@ -3,14 +3,37 @@ import './Products.css';
 import { AddToCartIcon, RemoveFromCartIcon } from './Icons.jsx';
 import { useCart } from '../hooks/useCart.js';
 import SeatMap from './AsientosMapa.jsx';
+import PassengerForm from './pasengerForm.jsx';
+import { useCallback } from 'react';
 
 export function Products({ products }) {
     const { addToCart, removeFromCart, cart } = useCart();
     const [showAsientosMapa, setShowAsientosMapa] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+    const [selectedSeats, setSelectedSeats] = useState([]);
+    const [isFormShown, setIsFormShown] = useState(false);
+
+
+
+    const handleShowForm = () => {
+        setIsFormShown(true);
+    };
 
     const checkProductInCart = (product) => {
         return cart.some((item) => item._id === product._id);
+    };
+
+    const handleSelectSeats = useCallback((seats) => {
+        setSelectedSeats(seats);
+    }, [])
+
+    // Aquí podrías calcular el precio total basado en los asientos seleccionados y el precio del producto
+    const totalPrice = selectedSeats.length * (selectedProduct?.price || 0)
+
+    const handleContinue = () => {
+        // Aquí manejarías el evento para continuar, por ejemplo, mostrar un modal o cambiar a otro componente
+        // que maneje la información del cliente y la confirmación de la reserva.
+        console.log("Continuar a la información del cliente");
     };
 
     // la primera vez cuando se invoca con la lista completa es false  showAsientosMapa cuando se invoca dando click muestra porque se convierte en verdadero
@@ -97,8 +120,11 @@ export function Products({ products }) {
                                             }}
                                         >
                                             {checkProductInCart(selectedProduct)
-                                                ? <RemoveFromCartIcon />
-                                                : <AddToCartIcon />
+                                                // ? <RemoveFromCartIcon />
+                                                // : <AddToCartIcon />
+
+                                                ? " Ocultar Asientos"
+                                                : "Ver Asientos"
                                             }
                                         </button>
                                     </td>
@@ -141,8 +167,10 @@ export function Products({ products }) {
                                                 }}
                                             >
                                                 {checkProductInCart(product)
-                                                    ? <RemoveFromCartIcon />
-                                                    : <AddToCartIcon />
+                                                    // ? <RemoveFromCartIcon />
+                                                    // : <AddToCartIcon />
+                                                    ? " Ocultar Asientos"
+                                                    : "Ver Asientos"
                                                 }
                                             </button>
                                         </td>
@@ -154,7 +182,42 @@ export function Products({ products }) {
                     </table>
                 </div>
                 {/* Mostrar el mapa de asientos si showAsientosMapa es true */}
-                {showAsientosMapa && <SeatMap />}
+                {/* {showAsientosMapa && <SeatMap />} */}
+                {/* Dentro de tu componente Products cuando renderizas SeatMap */}
+                {showAsientosMapa && selectedProduct && (
+
+                    <>
+                        <div className="seatmap-and-checkout-container">
+                            <div className="seat-map-container">
+                                <SeatMap
+                                    rows={Array.from({ length: 4 }, (_, index) => index + 1)}
+                                    seatsPerRow={Array.from({ length: 10 }, (_, index) => index + 1)}
+                                    onSelectSeats={handleSelectSeats}
+                                    onSeatSelect={setSelectedSeats}
+
+                                />
+                            </div>
+
+                            <div className='checkout-info'>
+                                <p>Origen: {selectedProduct.origen}</p>
+                                <p>Destino: {selectedProduct.destino}</p>
+                                <p>Asientos seleccionados: {selectedSeats.join(', ')}</p>
+                                <p>Precio total: PEN {totalPrice.toFixed(2)}</p>
+                                <button onClick={handleShowForm}>Siguiente</button>
+                                {/* <button onClick={handleContinue}>Siguiente</button> */}
+                            </div>
+
+                            {isFormShown ? (
+                                <PassengerForm selectedSeats={selectedSeats} />
+                            ) : (
+                                // ... Mapa de asientos y botón para mostrar formulario
+                                <button onClick={handleShowForm}>Siguiente</button> // no hace nada
+                            )}
+                        </div>
+
+
+                    </>
+                )}
             </div>
         </main>
     );
