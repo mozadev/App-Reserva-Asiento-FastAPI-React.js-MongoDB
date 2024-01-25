@@ -5,7 +5,7 @@ export function Header() {
     // export function Header({ children }) {
     return (
         <header>
-            <h1>MetaBus Shop 🛒</h1>
+            <h1><center>MetaBus Shop 🛒</center></h1>
             <Filters />
             {/* {children} */}
         </header>
