@@ -1,10 +1,15 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from models import Viaje
+
 from bson import (
     ObjectId,
 )  # importamos to convert string to ObjectId in get_one_viaje_id
 
-client = AsyncIOMotorClient("mongodb://localhost:27017")
+from decouple import config
+
+# client = AsyncIOMotorClient("mongodb://localhost:27017")
+print(config("MONGODB_URI"))
+client = AsyncIOMotorClient(config('MONGODB_URI'))
 database = client.viajedatabase
 collection = database.viajes
 
