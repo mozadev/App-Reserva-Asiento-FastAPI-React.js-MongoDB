@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const URL = 'http://localhost:8000'
+// const URL = 'http://localhost:8000'
+const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000"
 const endpoint = `${URL}/api/viajes`
 
 export const fetchViajes = async () => await axios.get(endpoint)
