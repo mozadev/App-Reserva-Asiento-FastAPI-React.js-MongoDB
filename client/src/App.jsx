@@ -20,7 +20,7 @@ import { Cart } from './components/Cart.jsx'
 import { CartProvider } from './context/cart.jsx'
 
 
-import { fetchViajes } from './api/viajes'
+import { fetchViajes } from './api/viajes.js'
 
 
 function App() {
