@@ -5,7 +5,7 @@ function Navbar() {
     return (
         <header className="flex justify-between items-center my-7">
             <Link to="/">
-                <h1 className="text-3xl font-bold">Sistema de Venta de Boleto de Viaje</h1>
+                <h1 className="text-3xl font-bold">Aplicativo de Venta de Boleto de Viaje</h1>
             </Link>
             <Link
                 to="/viajes/new"
