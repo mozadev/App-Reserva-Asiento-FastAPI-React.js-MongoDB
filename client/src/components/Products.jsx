@@ -68,9 +68,9 @@ export function Products({ products }) {
                     <table>
                         <thead>
                             <tr>
-                                <th>Thumbnail</th>
-                                <th>Title</th>
-                                <th>Price</th>
+                                <th>Foto</th>
+                                <th>Titulo</th>
+                                <th>Precio</th>
                                 <th>Asientos</th>
                                 <th>Origen</th>
                                 <th>Destino</th>

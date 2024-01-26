@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
 // import axios from 'axios'
 import { fetchViaje, createViaje, updateViaje, deleteViaje } from '../api/viajes'
+import './ViajeForm.css'
+
 
 function ViajeForm() {
     const [title, setTitle] = useState('')
@@ -34,7 +36,7 @@ function ViajeForm() {
                 const res = await updateViaje(params.id, { title, description, price, asientos_disponibles, origen, destino, fecha_salida: datetimeFechaSalida, hora_salida, hora_llegada, tipo_servicio, thumbnail })
                 console.log(res);
             }
-            navigate("/")
+            navigate("/admin")
         } catch (error) {
             console.log(error);
         }
@@ -66,7 +68,7 @@ function ViajeForm() {
 
     return (
         <div className="flex items-center justify-center h-[calc(100vh-10rem)]">
-            <div>
+            <div className="form-container">
                 <form className="bg-zinc-950 p-10" onSubmit={handleSubmit}>
                     <h1
                         className="text-3xl font-bold text-red-400 mb-5 my-4"
@@ -188,7 +190,7 @@ function ViajeForm() {
                         try {
                             const res = await deleteViaje(params.id)
                             console.log(res);
-                            navigate("/")
+                            navigate("/admin")
                         } catch (error) {
                             console.log(error);
                         }

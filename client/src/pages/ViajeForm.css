@@ -1,0 +1,8 @@
+.form-container {
+    max-width: 600px; /* O el ancho que prefieras */
+    margin: auto; /* Esto centra el formulario */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del formulario */
+    background: black; /* Fondo claro para el formulario */
+  }
+  

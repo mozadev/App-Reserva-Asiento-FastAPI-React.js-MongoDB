@@ -1,0 +1,27 @@
+
+
+header h1 {
+    text-align: center;
+    font-size: 3em; /* Ajusta el tamaño de la fuente */
+    font-family: 'Arial', sans-serif; /* Cambia la fuente si lo deseas */
+    color: #333; /* El color del texto */
+    text-shadow: 2px 2px 4px #aaa; /* Sombra del texto para darle profundidad */
+    margin-top: 0.5em; /* Espacio superior */
+    margin-bottom: 0.5em; /* Espacio inferior */
+}
+
+/* Media query para detectar si el usuario prefiere un esquema de color oscuro */
+@media (prefers-color-scheme: dark) {
+    header h1 {
+        color: #f2f2f2; /* Color claro para esquema oscuro */
+        text-shadow: 2px 2px 8px #000; /* Sombra oscura para esquema oscuro */
+    }
+}
+
+/* Media query para detectar si el usuario prefiere un esquema de color claro */
+@media (prefers-color-scheme: light) {
+    header h1 {
+        color: #333; /* Color oscuro para esquema claro */
+        text-shadow: 2px 2px 4px #aaa; /* Sombra clara para esquema claro */
+    }
+}

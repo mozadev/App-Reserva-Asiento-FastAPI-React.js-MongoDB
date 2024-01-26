@@ -51,16 +51,16 @@ function App() {
   return (
     <BrowserRouter>
       <div className='container mx-auto px-10'>
-        <Navbar />
+        {/* <Navbar /> */}
 
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/admin" element={<><Navbar /><Homepage /></>} />
           <Route path="viajes/:id" element={<ViajeForm />} />
           <Route path="viajes/new" element={<ViajeForm />} />
 
           {/* Ruta para renderizar todo el contenido bajo una sola vista */}
           <Route
-            path="/tienda"
+            path="/"
             element={
               <CartProvider>
                 <Header />
