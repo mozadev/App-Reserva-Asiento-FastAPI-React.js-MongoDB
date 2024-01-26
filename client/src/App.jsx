@@ -30,9 +30,21 @@ function App() {
   useEffect(() => {
     fetchViajes()
       .then(res => {
-        setViajes(res.data)
+
+        // Asegúrate de que res.data es un array
+        if (Array.isArray(res.data)) {
+          setViajes(res.data);
+        } else {
+          console.error('La respuesta no es un array:', res.data);
+          setViajes([]); // Establece viajes a un array vacío como fallback
+        }
+
       })
-      .catch(err => console.log(err))
+      // .catch(err => console.log(err))
+      .catch(err => {
+        console.error('Error al recuperar viajes:', err);
+        setViajes([]); // En caso de error, también establece viajes a un array vacío
+      });
 
     // async function fetchViajes() {
     //     const res = await axios.get("http://localhost:8000/api/viajes");
@@ -42,8 +54,6 @@ function App() {
 
     // fetchViajes();
   }, []);
-
-
 
   const { filterProducts } = useFilters()
   const filteredProducts = filterProducts(viajes)
