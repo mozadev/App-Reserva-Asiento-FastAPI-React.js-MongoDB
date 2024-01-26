@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 function Navbar() {
     return (
         <header className="flex justify-between items-center my-7">
-            <Link to="/">
+            <Link to="/admin">
                 <h1 className="text-3xl font-bold"> Sistema de Venta de Boleto de Viaje 💼 -  Moza-Bus 🚌 (Panel Administrativo)</h1>
             </Link>
             <Link
