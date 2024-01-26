@@ -75,7 +75,7 @@ export function Filters() {
                     onChange={handleChangeMinPrice}
                     value={filters.minPrice}
                 />
-                <span>S/.{filters.minPrice}</span>
+                <span>${filters.minPrice}</span>
             </div>
 
             <div>
