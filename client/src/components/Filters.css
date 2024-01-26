@@ -12,3 +12,44 @@ gap: 1rem;
 
 
 }
+
+
+/* Definir variables CSS para los colores que cambiarán */
+:root {
+    --color-fondo-claro: #ffffff;
+    --color-fondo-oscuro: #333333;
+    --color-texto-claro: #333333;
+    --color-texto-oscuro: #ffffff;
+    --color-borde-claro: #cccccc;
+    --color-borde-oscuro: #666666;
+  }
+  
+  /* Estilos por defecto (modo claro) */
+  .filters select,
+  .filters input[type="date"],
+  .filters input[type="range"] {
+    background-color: var(--color-fondo-claro);
+    color: var(--color-texto-claro);
+    border: 1px solid var(--color-borde-claro);
+  }
+  
+  /* Media query para detectar si el usuario prefiere un esquema de color oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-fondo-claro: #333333;
+      --color-fondo-oscuro: #ffffff;
+      --color-texto-claro: #ffffff;
+      --color-texto-oscuro: #333333;
+      --color-borde-claro: #666666;
+      --color-borde-oscuro: #cccccc;
+    }
+  
+    .filters select,
+    .filters input[type="date"],
+    .filters input[type="range"] {
+      background-color: var(--color-fondo-oscuro);
+      color: var(--color-texto-oscuro);
+      border: 1px solid var(--color-borde-oscuro);
+    }
+  }
+  

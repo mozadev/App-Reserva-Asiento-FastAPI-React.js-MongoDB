@@ -207,3 +207,30 @@ table-conteiner{
     padding-top: 10px;
   }
 }
+
+/* Estilos por defecto (modo claro) */
+.products th {
+  background-color: #f2f2f2; /* Color de fondo para el modo claro */
+  color: #333; /* Color de texto para el modo claro */
+  font-weight: bold;
+}
+
+/* Media query para detectar si el usuario prefiere un esquema de color oscuro */
+@media (prefers-color-scheme: dark) {
+  .products th {
+    background-color: #333; /* Color de fondo para el modo oscuro */
+    color: #f2f2f2; /* Color de texto para el modo oscuro */
+  }
+  
+  /* Puedes agregar aquí más estilos para otros elementos en modo oscuro si es necesario */
+}
+
+/* Media query para detectar si el usuario prefiere un esquema de color claro */
+@media (prefers-color-scheme: light) {
+  .products th {
+    background-color: #f2f2f2; /* Color de fondo para el modo claro */
+    color: #333; /* Color de texto para el modo claro */
+  }
+  
+  /* Más estilos para el modo claro si es necesario */
+}
