@@ -7,6 +7,14 @@ export function useFilters() {
 
   const filterProducts = (products) => {
     return products.filter(product => {
+
+      if (!Array.isArray(products)) {
+        // Si no es un array, muestra un error en la consola y retorna un array vacío
+        console.error('filterProducts espera un array, recibió:', products);
+        return [];
+      }
+
+
       return (
         product.price >= filters.minPrice &&
         (
