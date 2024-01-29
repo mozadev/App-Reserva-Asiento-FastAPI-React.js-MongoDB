@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import './pasengerForm.css';
 
-const PassengerForm = ({ selectedSeats }) => {
+
+const PassengerForm = ({ selectedSeats, onPaymentReady }) => {
     const [passengerInfo, setPassengerInfo] = useState({});
     const [contactDetails, setContactDetails] = useState({});
     const isSinglePassenger = selectedSeats.length === 1;
@@ -27,6 +28,8 @@ const PassengerForm = ({ selectedSeats }) => {
         console.log('Información del pasajero:', passengerInfo);
         console.log('Detalles de contacto:', contactDetails);
         // Aquí redirigirías al usuario al siguiente paso, por ejemplo, a la página de pago
+        onPaymentReady();
+
     };
 
     return (

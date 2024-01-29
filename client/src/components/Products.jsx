@@ -5,6 +5,9 @@ import { useCart } from '../hooks/useCart.js';
 import SeatMap from './AsientosMapa.jsx';
 import PassengerForm from './pasengerForm.jsx';
 import { useCallback } from 'react';
+import PaypalButton from './PaypalButton.jsx';
+
+
 
 export function Products({ products }) {
     const { addToCart, removeFromCart, cart } = useCart();
@@ -12,7 +15,12 @@ export function Products({ products }) {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [selectedSeats, setSelectedSeats] = useState([]);
     const [isFormShown, setIsFormShown] = useState(false);
+    const [showPaypalButton, setShowPaypalButton] = useState(false);
 
+
+    const handlePaymentReady = () => {
+        setShowPaypalButton(true);
+    };
 
 
     const handleShowForm = () => {
@@ -208,11 +216,15 @@ export function Products({ products }) {
                             </div>
 
                             {isFormShown ? (
-                                <PassengerForm selectedSeats={selectedSeats} />
+                                <PassengerForm selectedSeats={selectedSeats} onPaymentReady={handlePaymentReady} />
                             ) : (
                                 // ... Mapa de asientos y botón para mostrar formulario
                                 <button onClick={handleShowForm}>Siguiente</button> // no hace nada
                             )}
+
+                            {showPaypalButton && <PaypalButton amount={totalPrice} />}
+
+
                         </div>
 
 

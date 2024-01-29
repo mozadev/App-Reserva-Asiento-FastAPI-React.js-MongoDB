@@ -1,0 +1,13 @@
+{
+"items":[
+{
+    "name": "T-Shirt",
+    "description": "Green XL",
+    "unit_amount": {
+        "currency": "USD",
+        "value": "10.00"
+    }
+    }
+ 
+]
+}

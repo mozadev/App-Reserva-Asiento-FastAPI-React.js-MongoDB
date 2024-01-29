@@ -1,0 +1,20 @@
+{
+"items":[
+{
+    "name": "T-Shirt",
+    "description": "Green XL",
+    "unit_amount": {
+        "currency": "USD",
+        "value": "10.00"
+    }
+    },
+    {
+        "name": "Shoes",
+        "description": "Running, Size 10.5",
+        "unit_amount": {
+            "currency": "USD",
+            "value": "80.00"
+        }
+}
+]
+}

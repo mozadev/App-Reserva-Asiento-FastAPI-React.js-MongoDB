@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from routes.viaje import viaje
+from routes.payment import payment_routes
 from fastapi.middleware.cors import CORSMiddleware
 from decouple import config
+from dotenv import load_dotenv
 
 app = FastAPI()
 print(config('FRONTEND_URL'))
@@ -20,9 +22,12 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*']
-    
 )
+
+load_dotenv()
+
 @app.get("/")
 def welcome():
     return {"message": "hola cesar"}
 app.include_router(viaje)
+app.include_router(payment_routes)
